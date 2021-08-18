@@ -1,0 +1,1 @@
+Alcuni esercizi di algoritmica... la maggior parte sono esami degli anni passati.
