@@ -1,0 +1,4 @@
+INPUT: grafo non orientato
+
+OUTPUT: 1 se il grafo in input è un albero,
+	0 altrimenti
