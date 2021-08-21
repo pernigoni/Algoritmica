@@ -85,7 +85,6 @@ int main()
       else
             printf("FALSE\n");
 
-
       clean_tree(&tree);
       return 0;
 }
