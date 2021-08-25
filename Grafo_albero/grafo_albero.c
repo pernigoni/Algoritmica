@@ -61,23 +61,17 @@ int is_tree(graph G, int N, int src)
             colours[i] = WHITE;
             pi[i] = -1;
       }
+
+      int ret = 1; 
       if(dfs_cycle(G, src, colours, pi) == 1) // se c'è un ciclo
-      {
-            free(colours);
-            free(pi); 
-            return 0;         
-      }
+            ret = 0;
       for(int i = 0; i < N; i++)
             if(colours[i] == WHITE) // se il grafo non è connesso
-            {
-                  free(colours);
-                  free(pi); 
-                  return 0;
-            }
+                  ret = 0;
+
       free(colours);
       free(pi); 
-
-      return 1;
+      return ret;
 }
 
 void delete_graph(graph G, int N)
