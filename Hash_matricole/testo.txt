@@ -1,0 +1,13 @@
+APPELLO 10/09/2019
+
+      Inserire N matricole in una tabella hash di dimensione 2N usando la funzione 
+      hash h = (matricola * 941) % 2N.
+      Successivamente si acquisiscono due sequenze di matricole rispettivamente di 
+      lunghezza M1 e M2 che corrispondono ai bocciati di prima e seconda prova.
+      Eliminare dalla tabella le matricole che hanno bocciato sia la prima che la 
+      seconda prova.
+      Stampare il numero di studenti che possono sostenere la prova finale (che sono
+      stati boccciati al massimo una volta).
+
+      INPUT:      5 123 333 666 111 400 2 123 666 3 400 123 666
+      OUTPUT:     3
