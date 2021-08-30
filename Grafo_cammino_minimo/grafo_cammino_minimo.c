@@ -132,8 +132,3 @@ int main()
       delete_graph(G, N);
       return 0;
 }
-
-
-
-
-
