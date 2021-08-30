@@ -24,7 +24,7 @@ void insert_in_list(item **list, int elem)
 
 void insert_in_list__(item **list, int data)
 {     /*
-            Se trovo data nella tabella aggiorno in campo count,
+            Se trovo data nella tabella aggiorno il campo count,
             altrimenti inserimento in testa.
       */
       item *curr = *list;
