@@ -8,6 +8,7 @@
 typedef struct _item 
 {
       int data;
+      int count; // conta quanti elementi sono presenti dopo curr
       struct _item *next;
 } item;
 
@@ -16,26 +17,24 @@ int h(int x, int n, int a, int b)
       return ((a * x + b) % HASH_CONST) % (2 * n);
 }
 
-void insert_in_list__(item **list, int elem, int *conflicts)
+void insert_in_list__(item **list, int elem, int *conflicts, int *max_len)
 {
       if(*list != NULL) // se la lista non è vuota c'è conflitto
             *conflicts += 1;
-      
+
       item *new_elem = malloc(sizeof(item));
       new_elem->data = elem;
       new_elem->next = *list;
-      *list = new_elem;
-}
 
-int length(item *list)
-{
-      int len = 0;
-      while(list != NULL)
-      {
-            len++;
-            list = list->next;
-      }
-      return len;
+      if(*list == NULL)
+            new_elem->count = 0;
+      else
+            new_elem->count = new_elem->next->count + 1;
+
+      if(new_elem->count > *max_len)
+            *max_len = new_elem->count;
+
+      *list = new_elem;
 }
 
 void clear_list(item **list)
@@ -63,20 +62,15 @@ int main()
       for(int i = 0; i < 2 * n; i++)
             T[i] = NULL;
       
-      int conflicts = 0;
+      int conflicts = 0, max_len = 0;
       for(int i = 0; i < n; i++)
       {
             scanf("%d", &x);
             hash = h(x, n, a, b);
-            insert_in_list__(&T[hash], x, &conflicts);
+            insert_in_list__(&T[hash], x, &conflicts, &max_len);
       }
 
-      int max_len = length(T[0]);
-      for(int i = 1; i < 2 * n; i++)
-            if(length(T[i]) > max_len)
-                  max_len = length(T[i]);
-
-      printf("%d\n%d\n", max_len, conflicts);
+      printf("%d\n%d\n", max_len + 1, conflicts);
 
       for(int i = 0; i < 2 * n; i++)
             clear_list(&T[i]);
