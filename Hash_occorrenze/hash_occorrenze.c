@@ -14,14 +14,6 @@ int h(int x, int n)
       return (x % 999149) % (2 * n);
 }
 
-void insert_in_list(item **list, int elem)
-{
-      item *new_elem = malloc(sizeof(item));
-      new_elem->data = elem;
-      new_elem->next = *list;
-      *list = new_elem;
-}
-
 void insert_in_list__(item **list, int data)
 {     /*
             Se trovo data nella tabella aggiorno il campo count,
