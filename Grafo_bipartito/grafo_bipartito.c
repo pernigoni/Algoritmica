@@ -1,8 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-// due colori a caso
-#define RED 0     
-#define BLUE 1
 // VA BENE
 /*
       Un grafo è bipartito sse è possibile colorarlo usando 2 colori.
@@ -73,7 +70,7 @@ int is_bipartite(graph G, int N)
                   altrimenti si controlla che la colorazione ricorsiva
                   abbia avuto successo.
             */
-            if(colours[i] == -1 && 0 == dfs_visit_two_colours(G, N, colours, i, RED))
+            if(colours[i] == -1 && 0 == dfs_visit_two_colours(G, N, colours, i, 0))
                   return 0;
       
       return 1;
