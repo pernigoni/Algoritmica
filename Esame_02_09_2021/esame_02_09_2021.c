@@ -31,7 +31,6 @@ int dfs_cycle(graph G, int src, int *colours, int *pi, int k)
       colours[src] = GRAY;
 
       int dest;
-
       
       if(G[src].degree > k + 1) // il grado di ogni nodo è al massimo k + 1 (k figli più il padre)
             return 0;
