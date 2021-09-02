@@ -13,12 +13,12 @@ typedef edges* graph;
 
 graph read_graph(int N)
 {
-      graph G = (graph) malloc(sizeof(edges) * N);
+      graph G = malloc(sizeof(edges) * N);
 
       for(int i = 0; i < N; i++)
       {
             scanf("%d", &G[i].degree);
-            G[i].adj = (int*) malloc(sizeof(int) * G[i].degree);
+            G[i].adj = malloc(sizeof(int) * G[i].degree);
             for(int j = 0; j < G[i].degree; j++)
                   scanf("%d", &G[i].adj[j]);        
       }
